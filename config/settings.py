@@ -65,6 +65,8 @@ DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL', default='sqlite:///db.sqlite3'), conn_max_age=600, conn_health_checks=True)
 }
 
+AUTH_USER_MODEL = 'users.User'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

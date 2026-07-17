@@ -50,6 +50,33 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+### Production Deployment (Render)
+
+1. **Set environment variables in Render dashboard**
+```bash
+# In Render Environment section, set these variables:
+SECRET_KEY=your-secret-key-here
+DEBUG=False
+ALLOWED_HOSTS=lifehub-ps3q.onrender.com
+DATABASE_URL=postgres://user:password@host:port/dbname
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
+```
+
+2. **Build Command (in Render dashboard)**
+```bash
+# Use build.sh or set this command:
+chmod +x build.sh && ./build.sh
+# or
+pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+```
+
+3. **Start Command (in Render dashboard)**
+```bash
+gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+```
+
 ### Production Deployment (Heroku/Similar Platforms)
 
 1. **Set environment variables**
@@ -104,6 +131,7 @@ LifeHub/
 ├── media/               # User uploaded files
 ├── requirements.txt     # Python dependencies
 ├── Procfile            # Heroku deployment
+├── build.sh            # Render build script
 ├── runtime.txt         # Python version
 └── .env.example        # Environment variables template
 ```
