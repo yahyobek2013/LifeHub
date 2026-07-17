@@ -32,7 +32,7 @@ urlpatterns = [
     path('profile/', views.profile_view, name='profile'),
     path('settings/', views.settings_view, name='settings'),
     
-# Additional modules
+    # Additional modules
     path('wishlist/', views.wishlist_view, name='wishlist'),
     path('health-reminder/', views.health_reminder_view, name='health_reminder'),
     path('shopping-list/', views.shopping_list_view, name='shopping_list'),
@@ -43,7 +43,7 @@ urlpatterns = [
     # Add page
     path('add/', views.add_view, name='add'),
     
-# Add item endpoints
+    # Add item endpoints
     path('add-admin/', views.add_admin, name='add_admin'),
     path('add-task/', views.add_task, name='add_task'),
     path('edit-task/<int:task_id>/', views.edit_task, name='edit_task'),
@@ -62,6 +62,10 @@ urlpatterns = [
     path('delete-image/<int:image_id>/', views.delete_image, name='delete_image'),
     path('get-image/<int:image_id>/', views.get_image, name='get_image'),
     path('add-idea/', views.add_idea, name='add_idea'),
+    path('edit-idea/<int:idea_id>/', views.edit_idea, name='edit_idea'),
+    path('delete-idea/<int:idea_id>/', views.delete_idea, name='delete_idea'),
+    path('get-idea/<int:idea_id>/', views.get_idea, name='get_idea'),
+    path('add-note/', views.add_note, name='add_note'),
     path('edit-note/<int:note_id>/', views.edit_note, name='edit_note'),
     path('delete-note/<int:note_id>/', views.delete_note, name='delete_note'),
     path('get-note/<int:note_id>/', views.get_note, name='get_note'),
@@ -74,24 +78,16 @@ urlpatterns = [
     path('delete-contact/<int:contact_id>/', views.delete_contact, name='delete_contact'),
     path('get-contact/<int:contact_id>/', views.get_contact, name='get_contact'),
     
-# Special dates endpoints
+    # Special dates endpoints
     path('add-special-date/', views.add_special_date, name='add_special_date'),
     path('edit-special-date/<int:date_id>/', views.edit_special_date, name='edit_special_date'),
     path('delete-special-date/<int:date_id>/', views.delete_special_date, name='delete_special_date'),
     path('search-special-dates/', views.search_special_dates, name='search_special_dates'),
     path('get-special-date/<int:date_id>/', views.get_special_date, name='get_special_date'),
     
-# Ideas endpoints
-    path('edit-idea/<int:idea_id>/', views.edit_idea, name='edit_idea'),
-    path('delete-idea/<int:idea_id>/', views.delete_idea, name='delete_idea'),
-    path('get-idea/<int:idea_id>/', views.get_idea, name='get_idea'),
-    
-# Notes endpoints
-    path('add-note/', views.add_note, name='add_note'),
-
-# Profile
+    # Profile
     path('change-password/', views.change_password, name='change_password'),
-
-# Logout
+    
+    # Logout
     path('logout/', views.logout_view, name='logout'),
 ]

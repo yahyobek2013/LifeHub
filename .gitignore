@@ -18,15 +18,15 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+__pycache__/
 
 # Django
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-media/
 staticfiles/
-.collectedstatic/
+collected-static/
 
 # Virtual environments
 venv/
@@ -48,6 +48,10 @@ Thumbs.db
 # Environment variables
 .env
 .env.local
+.env.production
 
 # Secret key
 secret_key.py
+
+# Media files
+media/
